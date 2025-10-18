@@ -18,13 +18,13 @@ const AboutMe = () => {
           <div className="about-image">
             <img 
               src={profilePic}
-              alt="Lomash Gupta" 
+              alt="Aakarshan Verma" 
               className="profile-image"
             />
           </div>
 
           <div className="about-text">
-            <h3>Hi, I'm <span className="highlight">Lomash Gupta</span></h3>
+            <h3>Hi, I'm <span className="highlight">Aakarshan Verma</span></h3>
             <p className="bio">
               I'm a passionate Software Developer and AI/ML Enthusiast with a knack for solving real-world problems through code.
               My expertise lies in crafting elegant, responsive, and scalable full-stack web applications.
@@ -74,14 +74,14 @@ const AboutMe = () => {
               
               <div className="education-item">
                 <h4>Senior Secondary (XII), Science</h4>
-                <p>Little Flower Higher Secondary School, Jammu</p>
+                <p>Indira Public School</p>
                 <p>Completed June 2022</p>
               </div>
             </div>
 
             <div className="cta-buttons">
               <a 
-                href="https://drive.google.com/drive/u/0/folders/1IBU0Rhvpwqm1XxEkLKgtmnkK2F-8wfYQ" 
+                href="https://drive.google.com/file/d/1voQeN6TCgRfFxsrIoj-LjPc_pPC1Lobb/view?usp=drive_link" 
                 className="resume-button"
                 target="_blank"
                 rel="noopener noreferrer"
