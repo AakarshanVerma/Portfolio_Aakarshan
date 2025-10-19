@@ -30,7 +30,7 @@ const Home = () => {
               <FaInstagram />
             </a>
             <a 
-              href="https://www.linkedin.com/in/lomash-gupta-060668260/" 
+              href="https://www.linkedin.com/in/aakarshan-verma-5b464026b/" 
               target="_blank" 
               rel="noopener noreferrer"
               className="social-link"
