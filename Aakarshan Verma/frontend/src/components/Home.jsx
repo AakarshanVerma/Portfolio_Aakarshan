@@ -9,8 +9,8 @@ const Home = () => {
         <div className="text-zone">
           <div className="intro-text">
             <p className="greeting">Hi there,</p>
-            <h1 className="name">I'm Lomash Gupta</h1>
-            <h2 className="role">Software Developer | AI/ML Enthusiast</h2>
+            <h1 className="name">I'm Aakarshan Verma</h1>
+            <h2 className="role">DevOps Engineer | Cyber Security Enthusiast</h2>
             <p className="subtitle">
               Full Stack Developer | Creative Coder | Problem Solver
             </p>

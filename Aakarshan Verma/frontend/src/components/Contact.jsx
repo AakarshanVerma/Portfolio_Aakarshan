@@ -74,11 +74,11 @@ const Contact = () => {
             <div className="contact-details">
               <div className="contact-item">
                 <i className="fas fa-envelope"></i>
-                <a href="mailto:lomash1671@gmail.com">lomash1671@gmail.com</a>
+                <a href="mailto:aakarshanverma26@gmail.com">aakarshanverma26@gmail.com</a>
               </div>
               <div className="contact-item">
                 <i className="fas fa-phone"></i>
-                <a href="tel:+919797691071">+91 9797691071</a>
+                <a href="tel:+917780883009">+91 7780883009</a>
               </div>
               <div className="contact-item">
                 <i className="fas fa-map-marker-alt"></i>
@@ -87,14 +87,11 @@ const Contact = () => {
             </div>
 
             <div className="social-links">
-              <a href="https://github.com/Lomash1671" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+              <a href="https://github.com/AakarshanVerma/Portfolio_Aakarshan" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
                 <i className="fab fa-github"></i>
               </a>
-              <a href="https://www.linkedin.com/in/lomash-gupta-060668260/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+              <a href="https://www.linkedin.com/in/aakarshan-verma-5b464026b/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                 <i className="fab fa-linkedin"></i>
-              </a>
-              <a href="https://x.com/LomashG5230" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
-                <i className="fab fa-twitter"></i>
               </a>
             </div>
           </div>

@@ -3,7 +3,7 @@ import '../styles/Projects.css';
 
 // Import local images from assets folder
 import vridhubImage from '../assets/vridhub.png';
-import portfolioImage from '../assets/portfolio.png';
+import portfolioImage from '../assets/Aakarshan.png';
 import tennisImage from '../assets/tennis.png';
 
 const Projects = () => {

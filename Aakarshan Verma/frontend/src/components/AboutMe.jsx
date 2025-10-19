@@ -1,5 +1,5 @@
 import React from 'react';
-import profilePic from '../assets/lomash.jpg'; // Update with your actual image filename
+import profilePic from '../assets/Aakarshan.png'; // Update with your actual image filename
 import '../styles/AboutMe.css';
 
 const AboutMe = () => {
