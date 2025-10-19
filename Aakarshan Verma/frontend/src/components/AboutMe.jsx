@@ -6,7 +6,7 @@ const AboutMe = () => {
   const skills = {
     frontend: ['HTML', 'CSS', 'JavaScript', 'React.js', 'TypeScript', 'Tailwind CSS'],
     backend: ['Node.js', 'Express.js', 'Python', 'MongoDB', 'PostgreSQL'],
-    tools: ['Git', 'GitHub', 'VS Code', 'Docker', 'Figma', 'Postman', 'Supabase', 'FastAPI', 'CI/CD', 'AWS Basics', 'Linux', 'Jenkins', 'Kubernetes', 'Terraform']
+    tools: ['Git', 'GitHub', 'VS Code', 'Docker', 'Supabase', 'FastAPI', 'CI/CD', 'AWS Basics', 'Linux', 'Jenkins', 'Kubernetes', 'Terraform']
   };
 
   return (
