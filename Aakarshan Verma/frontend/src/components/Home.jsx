@@ -15,7 +15,7 @@ const Home = () => {
               Building & Scaling Apps | Full Stack + DevOps | Solution-Oriented
             </p>
             <p className="ml-note">
-              Currently exploring machine learning applications in real-world problems — combining AI with web technologies to create smarter apps.
+            Currently exploring machine learning applications in real-world problems — combining AI with web technologies to create smarter apps.
             </p>
           </div>
 
