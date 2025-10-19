@@ -15,7 +15,7 @@ const Home = () => {
               Building & Scaling Apps | Full Stack + DevOps | Solution-Oriented
             </p>
             <p className="ml-note">
-            Full Stack & DevOps Developer | Exploring AI, IoT & Cybersecurity | Building Intelligent, Real-World Applications.
+            Full Stack and DevOps Developer | Exploring AI, IoT & Cybersecurity | Building Intelligent, Real-World Applications.
             </p>
           </div>
 
