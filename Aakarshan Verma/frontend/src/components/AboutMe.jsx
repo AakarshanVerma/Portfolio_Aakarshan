@@ -26,10 +26,7 @@ const AboutMe = () => {
           <div className="about-text">
             <h3>Hi, I'm <span className="highlight">Aakarshan Verma</span></h3>
             <p className="bio">
-              I'm a passionate Software Developer and AI/ML Enthusiast with a knack for solving real-world problems through code.
-              My expertise lies in crafting elegant, responsive, and scalable full-stack web applications.
-              Currently exploring machine learning, I enjoy integrating intelligent features into modern web solutions.
-              I thrive in collaborative environments and am constantly learning new technologies to stay ahead in the tech curve.
+              I’m a passionate Full Stack Developer and DevOps enthusiast with a keen interest in AI/ML, Cybersecurity, and IoT. I enjoy building elegant, scalable, and intelligent web applications that solve real-world problems. Constantly exploring new technologies, I thrive in collaborative environments and aim to integrate smart, secure, and efficient solutions into modern applications.
             </p>
 
             <div className="skills-section">
