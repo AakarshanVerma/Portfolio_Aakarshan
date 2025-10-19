@@ -12,7 +12,7 @@ const Home = () => {
             <h1 className="name">I'm Aakarshan Verma</h1>
             <h2 className="role">DevOps Engineer | Cyber Security Enthusiast</h2>
             <p className="subtitle">
-              Full Stack Developer | Creative Coder | Problem Solver
+              Building & Scaling Apps | Full Stack + DevOps | Solution-Oriented
             </p>
             <p className="ml-note">
               Currently exploring machine learning applications in real-world problems — combining AI with web technologies to create smarter apps.
