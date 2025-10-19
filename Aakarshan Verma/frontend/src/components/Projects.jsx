@@ -9,6 +9,18 @@ import tennisImage from '../assets/tennis.png';
 const Projects = () => {
   const projects = [
     {
+      title: "AASRA SEWA",
+      description: [
+        "Developed a disaster relief management platform using React, providing an intuitive interface for quick access to aid and resources.",
+        "Built and maintained secure RESTful APIs with Node.js and Express, ensuring efficient handling of emergency requests and equitable resource distribution.",
+        "Integrated real-time tracking and notifications using Supabase, enabling timely assistance and coordination for vulnerable groups during crises."
+      ],
+      technologies: ["React", "Node.js", "Express", "Supabase"],
+      image: aasraSewaImage,
+      github: "#",
+      live: "#"
+    },
+    {
       title: "VRIDHUB",
       description: [
         "Developed a scalable full-stack web application using React for the frontend, delivering a responsive and accessible user interface tailored for elderly users.",
@@ -52,8 +64,8 @@ const Projects = () => {
         <h2 className="section-title">Featured Projects</h2>
         <div className="projects-grid">
           {projects.map((project, index) => (
-            <div 
-              className="project-card" 
+            <div
+              className="project-card"
               key={index}
               data-aos="fade-up"
               data-aos-delay={index * 100}
