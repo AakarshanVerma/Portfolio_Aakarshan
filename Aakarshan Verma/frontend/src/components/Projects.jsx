@@ -1,10 +1,11 @@
 import React from 'react';
 import '../styles/Projects.css';
 
-// Import local images from assets folder
+// Import images
 import vridhubImage from '../assets/vridhub.png';
 import portfolioImage from '../assets/Aakarshan.png';
 import tennisImage from '../assets/tennis.png';
+import aasraSewaImage from '../assets/AasraSewa.png';
 
 const Projects = () => {
   const projects = [
@@ -70,54 +71,44 @@ const Projects = () => {
               data-aos="fade-up"
               data-aos-delay={index * 100}
             >
-              <div className="project-content">
-                <div className="project-image">
-                  <img src={project.image} alt={project.title} />
-                  <div className="project-overlay">
-                    <div className="project-links">
-                      {project.github !== "#" && (
-                        <a href={project.github} target="_blank" rel="noopener noreferrer" aria-label={`${project.title} GitHub`}>
-                          <i className="fab fa-github"></i>
-                        </a>
-                      )}
-                      {project.live !== "#" && (
-                        <a href={project.live} target="_blank" rel="noopener noreferrer" aria-label={`${project.title} Live Demo`}>
-                          <i className="fas fa-external-link-alt"></i>
-                        </a>
-                      )}
-                    </div>
+              <div className="project-image">
+                <img src={project.image} alt={project.title} />
+                <div className="project-overlay">
+                  <div className="project-links">
+                    {project.github !== "#" && (
+                      <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={`${project.title} GitHub`}
+                      >
+                        <i className="fab fa-github"></i>
+                      </a>
+                    )}
+                    {project.live !== "#" && (
+                      <a
+                        href={project.live}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={`${project.title} Live Demo`}
+                      >
+                        <i className="fas fa-external-link-alt"></i>
+                      </a>
+                    )}
                   </div>
                 </div>
-                <div className="project-info">
-                  <h3 className="project-title">{project.title}</h3>
-                  <ul className="project-description">
-                    {project.description.map((point, i) => (
-                      <li key={i}>{point}</li>
-                    ))}
-                  </ul>
-                  {project.frontendTechnologies && (
-                    <div className="project-tech">
-                      <strong>Frontend:</strong>{" "}
-                      {project.frontendTechnologies.map((tech, i) => (
-                        <span key={i} className="tech-tag">{tech}</span>
-                      ))}
-                    </div>
-                  )}
-                  {project.backendTechnologies && (
-                    <div className="project-tech">
-                      <strong>Backend:</strong>{" "}
-                      {project.backendTechnologies.map((tech, i) => (
-                        <span key={i} className="tech-tag">{tech}</span>
-                      ))}
-                    </div>
-                  )}
-                  {!project.frontendTechnologies && !project.backendTechnologies && project.technologies && (
-                    <div className="project-tech">
-                      {project.technologies.map((tech, i) => (
-                        <span key={i} className="tech-tag">{tech}</span>
-                      ))}
-                    </div>
-                  )}
+              </div>
+              <div className="project-info">
+                <h3 className="project-title">{project.title}</h3>
+                <ul className="project-description">
+                  {project.description.map((point, i) => (
+                    <li key={i}>{point}</li>
+                  ))}
+                </ul>
+                <div className="project-tech">
+                  {project.technologies.map((tech, i) => (
+                    <span key={i} className="tech-tag">{tech}</span>
+                  ))}
                 </div>
               </div>
             </div>
