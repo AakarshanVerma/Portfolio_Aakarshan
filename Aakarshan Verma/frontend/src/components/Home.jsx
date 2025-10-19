@@ -22,7 +22,7 @@ const Home = () => {
           {/* Add social links here */}
           <div className="social-links">
             <a 
-              href="https://www.instagram.com/lomash_.71/" 
+              href="https://www.instagram.com/__noxus_/" 
               target="_blank" 
               rel="noopener noreferrer"
               className="social-link"
