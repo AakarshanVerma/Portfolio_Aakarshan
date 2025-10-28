@@ -30,9 +30,9 @@ const Navbar = () => {
     >
       <div className="nav-container">
 
-        {/* LG logo */}
+        {/* Aakarshan Verma logo */}
         <a href="#home" className="nav-logo" onClick={handleLinkClick} aria-label="Homepage">
-          LG
+          Aakarshan Verma
         </a>
 
         <ul className={`nav-links ${isMenuOpen ? 'active' : ''}`} id="primary-navigation">
@@ -58,7 +58,7 @@ const Navbar = () => {
           </li>
           <li>
             <a
-              href="https://drive.google.com/drive/u/0/folders/1IBU0Rhvpwqm1XxEkLKgtmnkK2F-8wfYQ"
+              href="/Aakarshan%20verma.pdf"
               className="resume-btn"
               target="_blank"
               rel="noopener noreferrer"
