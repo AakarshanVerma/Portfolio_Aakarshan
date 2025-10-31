@@ -1,17 +1,19 @@
-import React, { useState, useEffect, useCallback } from 'react';
-import '../styles/Navbar.css';
+import React, { useState, useEffect, useCallback } from "react";
+import "../styles/Navbar.css";
+import DarkModeToggle from "./DarkModeToggle";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  // Handle scroll effect for navbar shadow or color change
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const handleLinkClick = useCallback(() => {
@@ -19,23 +21,32 @@ const Navbar = () => {
   }, []);
 
   const toggleMenu = useCallback(() => {
-    setIsMenuOpen(prev => !prev);
+    setIsMenuOpen((prev) => !prev);
   }, []);
 
   return (
     <nav
-      className={`navbar ${isScrolled ? 'scrolled' : ''}`}
+      className={`navbar ${isScrolled ? "scrolled" : ""}`}
       role="navigation"
       aria-label="Main navigation"
     >
       <div className="nav-container">
 
         {/* Aakarshan Verma logo */}
-        <a href="#home" className="nav-logo" onClick={handleLinkClick} aria-label="Homepage">
+        <a
+          href="#home"
+          className="nav-logo"
+          onClick={handleLinkClick}
+          aria-label="Homepage"
+        >
           Aakarshan Verma
         </a>
 
-        <ul className={`nav-links ${isMenuOpen ? 'active' : ''}`} id="primary-navigation">
+        {/* Navigation Links */}
+        <ul
+          className={`nav-links ${isMenuOpen ? "active" : ""}`}
+          id="primary-navigation"
+        >
           <li>
             <a href="#home" className="nav-item" onClick={handleLinkClick}>
               Home
@@ -69,17 +80,22 @@ const Navbar = () => {
           </li>
         </ul>
 
-        <button
-          className={`menu-btn ${isMenuOpen ? 'open' : ''}`}
-          onClick={toggleMenu}
-          aria-label="Toggle menu"
-          aria-expanded={isMenuOpen}
-          aria-controls="primary-navigation"
-        >
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
+        {/* 🌗 Dark/Light Mode Toggle + Menu Button */}
+        <div className="nav-right">
+          <DarkModeToggle />
+
+          <button
+            className={`menu-btn ${isMenuOpen ? "open" : ""}`}
+            onClick={toggleMenu}
+            aria-label="Toggle menu"
+            aria-expanded={isMenuOpen}
+            aria-controls="primary-navigation"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
       </div>
     </nav>
   );

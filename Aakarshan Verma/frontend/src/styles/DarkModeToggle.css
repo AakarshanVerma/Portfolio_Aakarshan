@@ -1,110 +1,56 @@
 .theme-toggle {
-  position: fixed;
-  bottom: 2rem;
-  right: 2rem;
-  padding: 0.5rem;
-  font-size: 1.5rem;
+  background: none;
   border: none;
-  border-radius: 50%;
-  background: var(--background);
-  color: var(--text-primary);
+  outline: none;
+  box-shadow: none;
   cursor: pointer;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-  transition: all 0.3s ease;
-  z-index: 1000;
+  font-size: 1.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease, color 0.3s ease;
+  padding: 0;
+}
+
+.theme-toggle:focus {
+  outline: none;
+  box-shadow: none;
 }
 
 .theme-toggle:hover {
-  transform: scale(1.1);
+  transform: rotate(15deg) scale(1.1);
 }
 
-.toggle-wrapper {
-  padding: 2px;
-  border-radius: 30px;
-  background: rgba(2, 12, 27, 0.7);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(100, 255, 218, 0.1);
-  transition: all 0.3s ease;
+.theme-toggle.light .icon {
+  color: #fbbf24; /* golden yellow for sun */
+  text-shadow: 0 0 8px rgba(251, 191, 36, 0.6);
 }
 
-.toggle-background {
-  position: relative;
-  width: 80px;
-  height: 36px;
-  border-radius: 30px;
-  background: linear-gradient(to right, #ffd700, #112240);
-  overflow: hidden;
+.theme-toggle.dark .icon {
+  color: #60a5fa; /* soft blue for moon */
+  text-shadow: 0 0 8px rgba(96, 165, 250, 0.6);
 }
 
-.icons {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 8px;
-  z-index: 1;
+/* Light and Dark Background Patterns */
+:root {
+  --pattern-light: radial-gradient(circle at 1px 1px, rgba(0, 0, 0, 0.04) 1px, transparent 0);
+  --pattern-dark: radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.05) 1px, transparent 0);
 }
 
-.sun, .moon {
-  font-size: 20px;
-  transition: opacity 0.3s ease;
+/* Light Theme */
+[data-theme="light"] {
+  background-color: #fdfdfd;
+  background-image: var(--pattern-light);
+  background-size: 20px 20px;
+  color: #1f2937;
+  transition: background-color 0.5s ease, color 0.5s ease;
 }
 
-.toggle-circle {
-  position: absolute;
-  top: 3px;
-  left: 3px;
-  width: 30px;
-  height: 30px;
-  background: #64ffda;
-  border-radius: 50%;
-  transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-}
-
-.toggle-circle.dark {
-  transform: translateX(44px);
-}
-
-/* Hover effects */
-.toggle-wrapper:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-}
-
-/* Animation for icons */
-.theme-toggle.dark .sun {
-  opacity: 0.4;
-}
-
-.theme-toggle.light .moon {
-  opacity: 0.4;
-}
-
-/* Media query for smaller screens */
-@media (max-width: 768px) {
-  .theme-toggle {
-    bottom: 1rem;
-    right: 1rem;
-  }
-
-  .toggle-background {
-    width: 60px;
-    height: 30px;
-  }
-
-  .toggle-circle {
-    width: 24px;
-    height: 24px;
-  }
-
-  .toggle-circle.dark {
-    transform: translateX(30px);
-  }
-
-  .sun, .moon {
-    font-size: 16px;
-  }
+/* Dark Theme */
+[data-theme="dark"] {
+  background-color: #0b0b0b;
+  background-image: var(--pattern-dark);
+  background-size: 20px 20px;
+  color: #f9fafb;
+  transition: background-color 0.5s ease, color 0.5s ease;
 }
