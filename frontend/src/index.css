@@ -1,0 +1,285 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:ital,wght@0,300;0,400;0,500;0,700;0,800;1,700;1,800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  --font-heading: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* Miles Morales UI Palette: Deep Carbon Black, Crimson Red, Bio-electric Gold */
+  --bg-primary: #060608;
+  --bg-secondary: #0b0c10;
+  --bg-card: rgba(12, 12, 16, 0.75);
+  --bg-card-hover: rgba(22, 22, 30, 0.9);
+  
+  --text-primary: #ffffff;
+  --text-secondary: #a3a6b5;
+  --text-muted: #5e6175;
+  
+  --accent-red: #ff003c;
+  --accent-gold: #ffd700;
+  --accent-cyan: #00f0ff;
+  --accent-gradient: linear-gradient(135deg, var(--accent-red) 0%, var(--accent-gold) 100%);
+  --accent-gradient-glow: rgba(255, 0, 60, 0.2);
+  
+  --border-color: rgba(255, 0, 60, 0.15);
+  --border-color-hover: rgba(255, 215, 0, 0.4);
+  
+  --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.7);
+  --shadow-md: 0 12px 36px rgba(255, 0, 60, 0.1);
+  --shadow-lg: 0 24px 64px rgba(255, 0, 60, 0.15);
+  
+  --glass-blur: 20px;
+  --transition-smooth: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-elastic: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+[data-theme='light'] {
+  /* Retain game UI vibe but using brighter visor/snow theme similar to Miles' winter jacket setup */
+  --bg-primary: #f0f1f5;
+  --bg-secondary: #e6e7eb;
+  --bg-card: rgba(255, 255, 255, 0.85);
+  --bg-card-hover: rgba(255, 255, 255, 0.95);
+  
+  --text-primary: #0a0a0f;
+  --text-secondary: #4a4b57;
+  --text-muted: #86889c;
+  
+  --accent-red: #d6002f;
+  --accent-gold: #e6b800;
+  --accent-cyan: #0099ff;
+  --accent-gradient-glow: rgba(214, 0, 47, 0.12);
+  
+  --border-color: rgba(214, 0, 47, 0.2);
+  --border-color-hover: rgba(230, 184, 0, 0.5);
+  
+  --shadow-sm: 0 4px 12px rgba(10, 10, 15, 0.05);
+  --shadow-md: 0 12px 36px rgba(214, 0, 47, 0.08);
+  --shadow-lg: 0 24px 64px rgba(214, 0, 47, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 85px;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  overflow-x: hidden;
+  transition: background-color 0.5s cubic-bezier(0.16, 1, 0.3, 1), color 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  line-height: 1.6;
+}
+
+/* Carbon Fiber Mesh Background Overlay */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  background-image: 
+    linear-gradient(0deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+  background-size: 20px 20px;
+  pointer-events: none;
+}
+
+[data-theme='light'] body::before {
+  background-image: 
+    linear-gradient(0deg, rgba(0, 0, 0, 0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.015) 1px, transparent 1px);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  text-transform: uppercase;
+  font-style: italic;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+}
+
+/* Scroll Progress Tracker */
+.scroll-progress-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  z-index: 9999;
+  background: rgba(0, 0, 0, 0.2);
+  pointer-events: none;
+}
+
+.scroll-progress-bar {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--accent-red) 0%, var(--accent-gold) 100%);
+  box-shadow: 0 0 10px var(--accent-red);
+  transition: width 0.1s ease-out;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--accent-red);
+  border-radius: 0;
+  border: 1px solid var(--bg-primary);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-gold);
+}
+
+/* Custom Selection */
+::selection {
+  background: var(--accent-red);
+  color: #ffffff;
+}
+
+/* Custom HUD Crosshair Cursor Styles */
+.custom-cursor-dot {
+  width: 6px;
+  height: 6px;
+  background-color: var(--accent-red);
+  border-radius: 50%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 99999;
+  box-shadow: 0 0 8px var(--accent-red);
+}
+
+.custom-cursor-ring {
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--accent-gold);
+  border-left-color: transparent;
+  border-right-color: transparent;
+  border-radius: 50%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 99998;
+  animation: rotateCrosshair 4s linear infinite;
+  transition: width 0.3s ease, height 0.3s ease, border-color 0.3s ease, transform 0.05s ease-out;
+}
+
+.custom-cursor-hover-ring {
+  width: 48px;
+  height: 48px;
+  border: 1.5px solid var(--accent-cyan);
+  border-top-color: transparent;
+  border-bottom-color: transparent;
+}
+
+.custom-cursor-hover-dot {
+  background-color: var(--accent-cyan);
+  box-shadow: 0 0 12px var(--accent-cyan);
+}
+
+@keyframes rotateCrosshair {
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* HUD Game Tech Bracket Panel */
+.glass-panel {
+  background: var(--bg-card);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-sm);
+  border-radius: 0; /* Angular HUD style */
+  position: relative;
+  transition: var(--transition-smooth);
+}
+
+/* Brackets corners on HUD panel */
+.glass-panel::before,
+.glass-panel::after {
+  content: "";
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border: 2px solid var(--accent-red);
+  pointer-events: none;
+  transition: var(--transition-elastic);
+}
+
+/* Top-Left Bracket */
+.glass-panel::before {
+  top: -2px;
+  left: -2px;
+  border-right: none;
+  border-bottom: none;
+}
+
+/* Bottom-Right Bracket */
+.glass-panel::after {
+  bottom: -2px;
+  right: -2px;
+  border-left: none;
+  border-top: none;
+}
+
+.glass-panel:hover {
+  border-color: var(--border-color-hover);
+  box-shadow: 0 0 25px rgba(255, 215, 0, 0.15);
+  background: var(--bg-card-hover);
+}
+
+.glass-panel:hover::before,
+.glass-panel:hover::after {
+  border-color: var(--accent-gold);
+  width: 18px;
+  height: 18px;
+}
+
+/* Animations */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes glitch {
+  0% { clip-path: inset(40% 0 61% 0); }
+  20% { clip-path: inset(92% 0 1% 0); }
+  40% { clip-path: inset(25% 0 58% 0); }
+  60% { clip-path: inset(80% 0 5% 0); }
+  80% { clip-path: inset(11% 0 75% 0); }
+  100% { clip-path: inset(40% 0 61% 0); }
+}
+
+@keyframes venomSpark {
+  0%, 100% { opacity: 0.2; box-shadow: 0 0 5px rgba(255, 215, 0, 0.2); }
+  50% { opacity: 1; box-shadow: 0 0 20px rgba(255, 215, 0, 0.6); }
+}
+
+.float-animation {
+  animation: float 5s ease-in-out infinite;
+}
+
+/* Responsive Hide Cursor */
+@media (max-width: 1024px) {
+  .custom-cursor-dot,
+  .custom-cursor-ring {
+    display: none !important;
+  }
+}

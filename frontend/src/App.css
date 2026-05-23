@@ -1,0 +1,7 @@
+/* App-wide general layouts (empty to avoid boilerplate layout constraints) */
+.App {
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+}
+

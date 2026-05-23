@@ -1,0 +1,267 @@
+.projects-section {
+  min-height: 100vh;
+  background-color: var(--bg-primary);
+  padding: 8rem 2rem;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1.5px solid var(--accent-red);
+}
+
+.projects-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  z-index: 1;
+  position: relative;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  gap: 3rem;
+  margin-top: 1rem;
+}
+
+.project-card {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: var(--transition-elastic);
+  box-shadow: var(--shadow-sm);
+  height: 100%;
+  /* Classic HUD Chamfered (Angled Corner) Cut on bottom right */
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%);
+  border-radius: 0;
+}
+
+.project-card:hover {
+  transform: translateY(-10px);
+  border-color: var(--border-color-hover);
+  box-shadow: 0 15px 40px rgba(255, 215, 0, 0.12);
+}
+
+.project-image {
+  position: relative;
+  overflow: hidden;
+  height: 240px;
+  background-color: var(--bg-secondary);
+}
+
+.project-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.project-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, transparent 30%, rgba(6, 6, 8, 0.8) 100%);
+  opacity: 0.9;
+  transition: var(--transition-smooth);
+}
+
+.project-card:hover .project-image img {
+  transform: scale(1.05);
+}
+
+.project-card:hover .project-overlay {
+  opacity: 0.5;
+}
+
+/* Mission Status Tag */
+.mission-status-tag {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  background: var(--accent-red);
+  color: #ffffff;
+  padding: 0.35rem 0.85rem;
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  font-weight: 900;
+  font-style: italic;
+  letter-spacing: 0.05em;
+  box-shadow: 0 0 10px var(--accent-red);
+  z-index: 2;
+  text-shadow: 0 0 3px rgba(0,0,0,0.5);
+}
+
+.project-info {
+  padding: 2.25rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-title {
+  color: var(--text-primary);
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  margin-bottom: 1.25rem;
+  font-weight: 800;
+  letter-spacing: -0.3px;
+  font-style: italic;
+  transition: var(--transition-smooth);
+}
+
+.project-card:hover .project-title {
+  color: var(--accent-gold);
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.2);
+}
+
+.project-description {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin-bottom: 2rem;
+  list-style: none;
+  flex: 1;
+}
+
+.project-description li {
+  margin-bottom: 0.8rem;
+  position: relative;
+  padding-left: 20px;
+  font-weight: 500;
+}
+
+.project-description li::before {
+  content: "»";
+  position: absolute;
+  left: 0;
+  color: var(--accent-red);
+  font-size: 0.95rem;
+  font-weight: 800;
+  top: 0px;
+}
+
+.project-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 1.25rem;
+  margin-top: auto;
+  border-top: 1px solid var(--border-color);
+  padding-top: 1.5rem;
+}
+
+.project-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  flex: 1;
+}
+
+.tech-tag {
+  background: rgba(255, 255, 255, 0.02);
+  color: var(--text-secondary);
+  padding: 0.35rem 0.85rem;
+  border-radius: 0; /* Angular */
+  font-size: 0.75rem;
+  font-weight: 700;
+  border: 1px solid var(--border-color);
+  transition: var(--transition-smooth);
+  font-style: italic;
+}
+
+.project-card:hover .tech-tag {
+  background: rgba(255, 0, 60, 0.05);
+  border-color: var(--accent-red);
+  color: var(--accent-red);
+}
+
+.project-links {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.project-link-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 0; /* Fully angular HUD style */
+  background: rgba(255, 0, 60, 0.03);
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  transition: var(--transition-elastic);
+  text-decoration: none;
+}
+
+.project-link-btn::before,
+.project-link-btn::after {
+  content: '';
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border: 1px solid var(--accent-red);
+  pointer-events: none;
+}
+
+.project-link-btn::before {
+  top: -1px;
+  left: -1px;
+  border-right: none;
+  border-bottom: none;
+}
+
+.project-link-btn::after {
+  bottom: -1px;
+  right: -1px;
+  border-left: none;
+  border-top: none;
+}
+
+.project-link-btn svg {
+  width: 1.15rem;
+  height: 1.15rem;
+}
+
+.project-link-btn:hover {
+  background: var(--accent-gradient);
+  border-color: transparent;
+  color: #060608;
+  transform: translateY(-3px) rotate(45deg);
+  box-shadow: 0 5px 15px rgba(255, 0, 60, 0.35);
+}
+
+.project-link-btn:hover svg {
+  transform: rotate(-45deg);
+}
+
+[data-theme='light'] .project-link-btn:hover {
+  color: #ffffff;
+}
+
+@media (max-width: 968px) {
+  .projects-grid {
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+    max-width: 520px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .projects-section {
+    padding: 6rem 1.25rem;
+  }
+  
+  .project-info {
+    padding: 1.75rem;
+  }
+  
+  .project-image {
+    height: 200px;
+  }
+}
