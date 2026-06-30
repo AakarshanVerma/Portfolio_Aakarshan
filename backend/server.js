@@ -6,6 +6,9 @@ require('dotenv').config();
 const app = express();
 app.use(cors());
 app.use(express.json());
+app.get("/", (req, res) => {
+  res.json({ message: "Portfolio Backend is running 🚀" });
+});
 
 app.post('/send-email', async (req, res) => {
   const { name, email, subject, phone, message } = req.body;
@@ -25,15 +28,15 @@ app.post('/send-email', async (req, res) => {
 
   // Fallback mode if credentials are empty or contain default placeholders
   if (
-    !emailUser || 
-    !emailPass || 
-    emailUser === 'your-email@gmail.com' || 
+    !emailUser ||
+    !emailPass ||
+    emailUser === 'your-email@gmail.com' ||
     emailPass === 'your-gmail-app-password'
   ) {
     console.log('ℹ️ [CONSOLE FALLBACK] No credentials found. Message successfully logged to terminal console.');
-    return res.status(200).json({ 
-      success: true, 
-      message: 'Dev fallback: Message logged to terminal console!' 
+    return res.status(200).json({
+      success: true,
+      message: 'Dev fallback: Message logged to terminal console!'
     });
   }
 
@@ -69,7 +72,11 @@ app.post('/send-email', async (req, res) => {
   }
 });
 
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
+module.exports = app;
+
+if (require.main === module) {
+  const PORT = process.env.PORT || 5000;
+  app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+  });
+}
